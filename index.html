@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top Secret 🔒</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Great+Vibes&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div id="passwordGate">
+        <div class="gate-card">
+            <h2>🔒 Restricted Access</h2>
+            <p>Enter the secret key to unlock:</p>
+            <input type="password" id="passInput" placeholder="Password">
+            <button onclick="unlock()">Unlock</button>
+        </div>
+    </div>
+
+    <div id="mainContent" style="display: none;">
+        <div class="cat-wrapper">
+            <img src="cat.jpg" alt="Cute Cat" class="cat-image">
+        </div>
+
+        <div class="envelope-container">
+            <div class="envelope" id="myEnvelope">
+                <div class="lid"></div>
+                <div class="thread" id="pullThread">
+                    <span class="pull-text">PULL ME</span>
+                </div>
+                <div class="paper-hint"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="letterOverlay" style="display: none;">
+        <div class="full-paper">
+            <button class="close-btn" onclick="closeLetter()">✕</button>
+            <div class="full-content">
+                <h2 class="vintage-title">My Dearest...</h2>
+                <div id="fullTypewriter" class="letter-body"></div>
+                
+                <div id="finalAction" style="display: none; margin-top: 30px;">
+                    <p style="font-size: 1.8rem; margin-bottom: 20px;">Will you be my girlfriend?</p>
+                    <div class="btn-group">
+                        <button id="yesBtn" onclick="sayYes()">Yes! ❤️</button>
+                        <button id="noBtn" onmouseover="moveNo()">No</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+:root {
+    --env-color: #f2e1c1;
+    --lid-color: #e6d3af;
+    --thread-color: #d63031;
+    --bg-color: #1a1a1a;
+    --paper-bg: #fdf5e6;
+}
+
+body, html {
+    margin: 0; padding: 0;
+    height: 100vh; width: 100vw;
+    background-color: var(--bg-color);
+    overflow: hidden;
+    display: flex; justify-content: center; align-items: center;
+}
+
+/* Password Screen */
+#passwordGate { text-align: center; position: absolute; z-index: 100; }
+.gate-card {
+    background: #2c3e50; padding: 40px; border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5); color: white;
+}
+input { display: block; margin: 20px auto; padding: 12px; border-radius: 5px; text-align: center; }
+
+/* Main Content Alignment */
+#mainContent {
+    display: none; flex-direction: column; align-items: center;
+    justify-content: center; width: 100vw; height: 100vh;
+}
+
+.cat-image { max-width: 130px; margin-bottom: -10px; z-index: 1; }
+
+/* Envelope Design */
+.envelope {
+    position: relative; width: 350px; height: 230px;
+    background-color: var(--env-color); border-radius: 0 0 10px 10px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+}
+.lid {
+    position: absolute; top: 0; left: 0; width: 0; height: 0;
+    border-left: 175px solid transparent; border-right: 175px solid transparent;
+    border-top: 115px solid var(--lid-color); transform-origin: top;
+    transition: transform 0.8s ease; z-index: 3;
+}
+.envelope.open .lid { transform: rotateX(180deg); z-index: 1; }
+
+.thread {
+    position: absolute; top: 90px; left: 50%; transform: translateX(-50%);
+    background: var(--thread-color); color: white; padding: 8px 18px;
+    border-radius: 4px; z-index: 4; cursor: pointer; transition: 0.5s;
+}
+.thread.pulled { transform: translate(-50%, 200px); opacity: 0; }
+
+/* Full Screen Letter Overlay */
+#letterOverlay {
+    position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+    background: rgba(0,0,0,0.9); z-index: 1000;
+    display: flex; justify-content: center; align-items: center;
+}
+.full-paper {
+    background: var(--paper-bg); width: 90%; max-width: 600px;
+    height: 85vh; padding: 40px; position: relative;
+    overflow-y: auto; border-radius: 5px; box-shadow: 0 0 50px rgba(0,0,0,0.5);
+    background-image: radial-gradient(circle at 50% 50%, rgba(210, 180, 140, 0.2) 0%, transparent 80%);
+}
+.vintage-title { font-family: 'Great Vibes', cursive; font-size: 2.5rem; color: #4e342e; }
+.letter-body { font-family: 'Dancing Script', cursive; font-size: 1.5rem; line-height: 1.8; color: #3e2723; }
+
+/* Buttons */
+.btn-group { display: flex; gap: 20px; justify-content: center; }
+#yesBtn { background: #ff4d6d; color: white; padding: 10px 30px; border: none; border-radius: 5px; cursor: pointer; font-size: 1.2rem; }
+#noBtn { background: #7f8c8d; color: white; padding: 10px 30px; border: none; border-radius: 5px; cursor: pointer; position: relative; }
+.close-btn { position: absolute; top: 10px; right: 15px; background: none; border: none; font-size: 20px; cursor: pointer; }
